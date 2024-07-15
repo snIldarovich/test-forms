@@ -1,0 +1,606 @@
+@import "normalize.css";
+@import "reset.scss";
+@import "variables.scss";
+
+.container {
+  margin: 0 auto;
+  padding: 0 10px;
+  max-width: 1140px;
+  box-sizing: border-box;
+}
+
+.header {
+  padding: 16px 0;
+  color: $white;
+  background: $header-bg;
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  &__item {
+    display: flex;
+    column-gap: 21px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-family: "GOST UI 2", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  &__login {
+    position: relative;
+    margin: 0 7px 0 36px;
+  }
+
+  &__item a {
+    font-family: "GOST UI 2", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: $white !important;
+    transition: all 0.3s;
+  }
+
+  &__item a:hover {
+    opacity: 0.7;
+  }
+
+  &__login::before {
+    content: "";
+    position: absolute;
+    left: -36px;
+    top: 50%;
+    width: 24px;
+    height: 24px;
+    background-image: url("/images/person.png");
+    transform: translateY(-50%);
+  }
+}
+
+.main {
+  padding: 64px 0;
+  background: $bg;
+}
+
+.about {
+  border-bottom: 1px solid rgba($color: $main, $alpha: 30%);
+  padding-bottom: 40px;
+
+  &__inner {
+    display: grid;
+    justify-content: space-between;
+    grid-gap: 20px;
+    grid-template-columns: minmax(auto, 736px) minmax(auto, 256px);
+  }
+
+  &__title {
+    font-family: "SF Pro Display", sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 56px;
+  }
+
+  &__text {
+    margin-top: 24px;
+    font-family: "GOST UI 2", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  &__note {
+    margin-top: 16px;
+  }
+
+  &__note-text_bold {
+    margin-top: 16px;
+    font-family: "GOST UI 2", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  &__note-text {
+    margin-top: 4px;
+    font-family: "GOST UI 2", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+.order {
+  padding: 40px 0;
+  max-width: 736px;
+}
+
+.form {
+  position: relative;
+  border: none;
+  border-radius: 4px;
+  padding: 24px 96px;
+  width: 100%;
+  min-height: 80px;
+  background: $white;
+
+  &:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  &__step {
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-family: "SF Pro Display", sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 28px;
+    text-align: center;
+    color: $white;
+    background: $blue;
+    transition: all 0.3s;
+  }
+
+  &__step::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 32px;
+    height: 32px;
+    background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.3333 20.7815L9.88531 17.3335C9.36469 16.8128 8.5206 16.8128 7.99998 17.3335C7.47936 17.8541 7.47936 18.6982 7.99998 19.2188L11.9191 23.1379C12.7002 23.919 13.9665 23.919 14.7475 23.1379L25.3333 12.5521C25.8539 12.0315 25.8539 11.1874 25.3333 10.6668C24.8127 10.1462 23.9686 10.1462 23.448 10.6668L13.3333 20.7815Z' fill='white'/%3E%3C/svg%3E%0A");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: $blue;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s;
+  }
+
+  &__inner {
+    max-width: 448px;
+  }
+
+  &__title {
+    font-family: "SF Pro Display", sans-serif;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 32px;
+    color: #3b4256;
+    transition: all 0.3s;
+  }
+
+  &__content {
+    transition: all 0.3s;
+  }
+
+  &__label {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+    padding: 16px 16px 16px 48px;
+    font-family: "GOST UI 2", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: $main;
+    background-color: $bg-item;
+    cursor: pointer;
+    row-gap: 16px;
+  }
+
+  &__label b {
+    margin-bottom: -16px;
+    font-family: "GOST UI 2", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    color: #000;
+  }
+
+  &__label+&__label {
+    margin-top: 16px;
+  }
+
+  &__radio {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
+  }
+
+  &__radio_custom {
+    display: block;
+    margin-top: -16px;
+    border: none !important;
+  }
+
+  &__radio_custom::before {
+    content: "";
+    position: absolute;
+    left: 28px;
+    top: 28px;
+    width: 24px;
+    height: 24px;
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z' fill='%233B4256'/%3E%3C/svg%3E%0A");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: translate(-50%, -50%);
+  }
+
+  &__radio:checked+.form__radio_custom::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    border: 2px solid $blue;
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    background-color: $white;
+  }
+
+  &__radio:checked+.form__radio_custom::before {
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z' fill='%230061D9'/%3E%3C/svg%3E%0A");
+  }
+
+  &__radio:disabled+.form__radio_custom {
+    border: 1px solid $inactive;
+  }
+
+  &__radio:focus+.form__radio_custom {
+    border: 1px solid $main;
+    border-radius: 50%;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+    border: none;
+    border-radius: 4px;
+    padding: 5px;
+    width: 100%;
+    height: 48px;
+    font-family: "GOST UI 2", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    color: $white;
+    background-color: $blue;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  &__button:hover {
+    opacity: 0.7;
+  }
+
+  &__error {
+    position: relative;
+    display: none;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    padding: 16px 20px 24px 52px;
+    font-family: "GOST UI 2", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: #3b4256;
+    background: $attention;
+  }
+
+  &__error::before {
+    content: "";
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    width: 24px;
+    height: 24px;
+    background-image: url("/images/attention.png");
+  }
+
+  &__label-text {
+    display: block;
+    margin-top: 24px;
+    font-family: "GOST UI 2", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: $main;
+  }
+
+  &__label-text+&__label-text {
+    margin-top: 16px;
+  }
+
+  &__input {
+    display: block;
+    margin-top: 8px;
+    border: 1px solid #3b425680;
+    border-radius: 4px;
+    padding: 12px;
+    width: 100%;
+    height: 48px;
+  }
+
+  &__input::placeholder {
+    color: $main;
+  }
+
+  &__text {
+    margin-top: 24px;
+    font-family: "GOST UI 2", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    color: #000;
+  }
+
+  &__text+&__label-text {
+    margin-top: 16px;
+  }
+
+  &__passport_serial {
+    display: grid;
+    column-gap: 32px;
+    align-items: start;
+    grid-template-columns: minmax(auto, 160px) minmax(auto, 256px);
+    margin-top: 16px;
+  }
+
+  &__passport_when {
+    display: grid;
+    column-gap: 16px;
+    grid-template-columns: minmax(auto, 120px) minmax(auto, 120px) minmax(auto, 176px);
+    margin-top: 16px;
+  }
+
+  &__passport-text {
+    grid-column: span 3;
+    color: $main !important;
+  }
+
+  &__passport_serial &__label-text {
+    margin-top: 0;
+  }
+
+  &__passport_when &__label-text {
+    margin-top: 0;
+    color: #848e99;
+  }
+
+  &__list {
+    margin-top: 8px;
+    margin-left: 12px;
+  }
+
+  &__list-item {
+    position: relative;
+    margin-top: 8px;
+    font-family: "GOST UI 2", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: $main;
+  }
+
+  &__list-item::before {
+    content: "";
+    position: absolute;
+    left: -11px;
+    top: 9px;
+    border-radius: 50%;
+    width: 4px;
+    height: 4px;
+    background: $main;
+  }
+
+  &__checkbox {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
+  }
+
+  &__checkbox_custom {
+    display: block;
+    margin-top: -16px;
+    border: none !important;
+  }
+
+  &__checkbox_custom::before {
+    content: "";
+    position: absolute;
+    left: 28px;
+    top: 28px;
+    width: 24px;
+    height: 24px;
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='path-1-inside-1_1_314' fill='white'%3E%3Crect x='2' y='2' width='20' height='20' rx='1'/%3E%3C/mask%3E%3Crect x='2' y='2' width='20' height='20' rx='1' stroke='%233B4256' stroke-width='4' mask='url(%23path-1-inside-1_1_314)'/%3E%3C/svg%3E%0A");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: translate(-50%, -50%);
+  }
+
+  &__checkbox:checked+.form__checkbox_custom::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    border: 2px solid $blue;
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    background-color: $white;
+  }
+
+  &__checkbox:checked+.form__checkbox_custom::before {
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='2' y='2' width='20' height='20' rx='1' fill='%230061D9'/%3E%3Cpath d='M10.3334 14.9882L7.58925 12.2441L6.41092 13.4224L10.3334 17.3449L18.4226 9.25573L17.2443 8.07739L10.3334 14.9882Z' fill='white'/%3E%3C/svg%3E%0A");
+  }
+
+  &__checkbox:disabled+.form__checkbox_custom {
+    border: 1px solid $inactive;
+  }
+
+  &__checkbox:focus+.form__checkbox_custom {
+    border: 1px solid $main;
+  }
+
+  &_checked {
+    height: auto;
+    transition: all 0.3s;
+  }
+
+  &_inactive {
+    overflow: hidden;
+    height: 80px;
+  }
+
+  &_invisible {
+    overflow: hidden;
+    margin: 0 !important;
+    padding: 0;
+    height: 0;
+    min-height: unset;
+    opacity: 0;
+  }
+
+  &__policy {
+    margin-top: 16px;
+    font-family: "GOST UI 2", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: $main;
+  }
+
+  &__policy a {
+    color: $policy;
+    transition: all 0.3s;
+  }
+
+  &__policy a:hover {
+    text-decoration: underline;
+    opacity: 0.7;
+  }
+
+  &__link_person {
+    color: $policy;
+  }
+
+  &__link_phone {
+    white-space: nowrap;
+    color: $main;
+    transition: all 0.3s;
+  }
+
+  &__links {
+    display: grid;
+    column-gap: 32px;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 24px;
+  }
+
+  &__links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    padding: 5px;
+    width: 100%;
+    height: 48px;
+    font-family: "GOST UI 2", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  &__links a:first-child {
+    color: $white;
+    background-color: $blue;
+  }
+
+  &__links a:last-child {
+    border: 1px solid #0050b280;
+    border-radius: 4px;
+    color: $policy;
+  }
+
+  &__links a:hover {
+    opacity: 0.7;
+  }
+
+  &__link_person:hover,
+  &__link_phone:hover {
+    text-decoration: underline;
+    opacity: 0.7;
+  }
+
+  &_inactive &__step {
+    background-color: $inactive;
+  }
+
+  &_inactive &__title {
+    color: $inactive;
+  }
+
+  &_inactive &__content,
+  &_checked &__content {
+    overflow: hidden;
+    margin: 0 !important;
+    padding: 0;
+    height: 0;
+    min-height: unset;
+    opacity: 0;
+  }
+
+  &_checked &__step {
+    font-size: 0;
+    background-color: $checked;
+  }
+
+  &_checked &__step::after {
+    background-color: $checked;
+    opacity: 1;
+  }
+}
+
+#form-4 .form__text {
+  margin-top: 16px;
+  font-weight: 400;
+}
+
+#form-4 .form__inner {
+  max-width: none;
+}
+
+#form-4 .form__text+.form__text {
+  margin-top: 24px;
+}
